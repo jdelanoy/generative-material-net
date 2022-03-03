@@ -1,0 +1,3 @@
+from .MaterialEditNet import MaterialEditNet
+from .MaterialEditNet_with_normals import MaterialEditNetWithNormals
+from .MaterialEditNet_with_normals_2steps import MaterialEditNetWithNormals2Steps

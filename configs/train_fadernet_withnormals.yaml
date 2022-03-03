@@ -1,0 +1,68 @@
+# meta
+exp_name: final_step1_glossy
+network: MaterialEditNetWithNormals
+mode: test
+cuda: false 
+ngpu: 1
+checkpoint: 80000
+
+# data
+data_augmentation: True
+data_root: ../../network_dataset/
+crop_size: 240
+image_size: 128
+img_channels: 4
+mask_input_bg: True
+
+#which part activate
+use_latent_disc: true
+use_image_disc: false
+GAN_style: "classif"
+rec_loss: 'l1' #Can be l1, l2, perceptual
+
+#### model 
+#dim of the network
+g_conv_dim: 32
+d_conv_dim: 32
+d_fc_dim: 256
+max_conv_dim: 512
+g_layers: 6
+d_layers: 5
+n_bottlenecks: 2
+n_attr_deconv: 1 #in how many deconv layer add the attribute:0 = no attribute, 1=normal (just concat to bneck)
+n_concat_normals: 4
+first_conv: False
+#other
+attrs: [glossy]
+
+# training 
+batch_size: 32
+beta1: 0.9
+beta2: 0.999
+g_lr: 0.0002
+d_lr: 0.0001
+ld_lr: 0.000025
+n_critic: 7
+n_critic_ld: 12
+gan_mode : wgangp
+lambda_adv : 0.02
+lambda_adv_classif : 3
+lambda_gp: 10
+lambda_G_rec: 1
+lambda_G_latent: 5
+lambda_G_perc: 0.2
+lambda_G_style: 0
+lambda_G_tv: 0
+lambda_LD: 1
+d_lamdba_adv: 1
+d_lambda_classif: 2
+d_lambda_match: 1
+
+max_epoch: 400
+lr_decay_iters: 100000
+
+# steps:
+#33 iter per batch
+summary_step: 100
+sample_step: 5000
+checkpoint_step: 10000
