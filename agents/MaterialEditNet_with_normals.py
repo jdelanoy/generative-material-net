@@ -1,6 +1,5 @@
 
 
-from datasets import *
 from models.networks import MaterialEditGeneratorWithNormals
 
 import numpy as np

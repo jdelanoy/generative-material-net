@@ -2,10 +2,8 @@
 import torch
 
 
-from datasets import *
 from models.networks import MaterialEditGeneratorWithNormals2Steps,MaterialEditGeneratorWithNormals
 
-from utils.im_util import denorm, write_labels_on_images
 import numpy as np
 from agents.MaterialEditNet import MaterialEditNet
 from utils import resize_right, interp_methods

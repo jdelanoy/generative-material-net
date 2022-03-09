@@ -9,7 +9,6 @@ import random
 import numpy as np
 #from utils.im_util import get_alpha_channel
 import cv2
-from matplotlib import pyplot as plt
 
 
 # go and read the dataset file. Output the list of files with their attributes (and potentially the material/illum/shape but currently commented to go faster)

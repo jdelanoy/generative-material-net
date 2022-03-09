@@ -68,3 +68,10 @@ def get_alpha_channel(image):
     image = image.convert('RGBA')
     alpha = image.getchannel('A')
     return alpha
+
+
+def denorm_and_alpha(image,alpha=None):
+    image=denorm(image,device=image.device)
+    if alpha != None:
+        return torch.cat([image*alpha,alpha],dim=1)
+    return image

@@ -3,11 +3,10 @@ import time
 import datetime
 from numpy.core.function_base import linspace
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
+
 import torchvision.utils as tvutils
 
-from datasets import *
+from datasets import material as material_loader
 from models.networks import MaterialEditGenerator, Discriminator, Latent_Discriminator, Discriminator, DiscriminatorWithClassifAttr
 from modules.perceptual_loss import PerceptualLoss, StyleLoss, VGG16FeatureExtractor
 from modules.GAN_loss import GANLoss

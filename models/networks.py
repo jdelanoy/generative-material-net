@@ -182,7 +182,7 @@ class MaterialEditGenerator(Unet):
 
 # G1 (MaterialEditGenerator with normals)
 class MaterialEditGeneratorWithNormals(MaterialEditGenerator):
-    def __init__(self, conv_dim=64, n_layers=5, max_dim=1024, im_channels=3, attr_dim=1,n_attr_deconv=1,n_concat_normals=1,normalization='instance', first_conv=False, n_bottlenecks=2, img_size=128, batch_size=32):
+    def __init__(self, conv_dim=32, n_layers=6, max_dim=512, im_channels=4, attr_dim=1,n_attr_deconv=1,n_concat_normals=4,normalization='instance', first_conv=False, n_bottlenecks=2, img_size=128, batch_size=32):
         super(MaterialEditGeneratorWithNormals, self).__init__(conv_dim, n_layers, max_dim, im_channels, attr_dim,n_attr_deconv,normalization,first_conv,n_bottlenecks, img_size, batch_size)
         self.n_concat_normals = n_concat_normals
         self.first_conv=first_conv
@@ -211,7 +211,7 @@ class MaterialEditGeneratorWithNormals(MaterialEditGenerator):
 
     #adding the normal map at the right scale if needed
     def add_multiscale_map(self,i,out,map_pyramid,n_levels):
-        shift = 0 if not self.first_conv else 1 #PIX2PIX there is one layer less than n_layers
+        shift = 0 if not self.first_conv else 1 
         rank=i-(self.n_layers-shift-n_levels)
         if rank >= 0 and rank<len(map_pyramid): 
             out = (torch.cat([out, map_pyramid[rank]], dim=1)) 
@@ -246,7 +246,7 @@ class MaterialEditGeneratorWithNormals(MaterialEditGenerator):
 
 # G2 
 class MaterialEditGeneratorWithNormals2Steps(MaterialEditGeneratorWithNormals):
-    def __init__(self, conv_dim=64, n_layers=5, max_dim=1024, im_channels=3, attr_dim=1,n_attr_deconv=1,n_concat_normals=1,normalization='instance', first_conv=False, n_bottlenecks=2, img_size=128, batch_size=32):
+    def __init__(self, conv_dim=32, n_layers=4, max_dim=512, im_channels=4, attr_dim=1,n_attr_deconv=1,n_concat_normals=4,normalization='instance', first_conv=True, n_bottlenecks=3, img_size=256, batch_size=32):
         super(MaterialEditGeneratorWithNormals2Steps, self).__init__(conv_dim, n_layers, max_dim, im_channels, attr_dim,n_attr_deconv,n_concat_normals,normalization,first_conv,n_bottlenecks, img_size, batch_size)
         self.img_size=img_size
         
