@@ -1,32 +1,36 @@
 # 
 This repo contains the official code for the paper "A Generative Framework for Image-based Editing of Material Appearance using Perceptual Attributes" (CGF 2022). Project page: [https://perso.liris.cnrs.fr/johanna.delanoy/2022_materials_generative_editing/index.html](https://perso.liris.cnrs.fr/johanna.delanoy/2022_materials_generative_editing/index.html)
 
-## Requirements
-- [Python 3.6+](https://www.python.org)
-- [PyTorch 1.0+](https://pytorch.org)
-
-- [tensorboardX 1.6+](https://github.com/lanpa/tensorboardX)
-- [torchsummary](https://github.com/sksq96/pytorch-summary)
-- [tqdm](https://github.com/tqdm/tqdm)
-- [Pillow](https://github.com/python-pillow/Pillow)
-- [easydict](https://github.com/makinacorpus/easydict)
-- pytorch-lightning (for normal prediction)
+## Requirements (to be completed)
+* [Python 3.6+](https://www.python.org)
+* [PyTorch 1.0+](https://pytorch.org)
+* [tensorboardX 1.6+](https://github.com/lanpa/tensorboardX)
+* [torchsummary](https://github.com/sksq96/pytorch-summary)
+* [tqdm](https://github.com/tqdm/tqdm)
+* [Pillow](https://github.com/python-pillow/Pillow)
+* [easydict](https://github.com/makinacorpus/easydict)
+* pytorch-lightning (for normal prediction)
 
 
 ## Testing
 
-Download the [trained weights](https://perso.liris.cnrs.fr/johanna.delanoy/data/2022_materials_generative_editing/models/checkpoints_generative_net.zip) for the attributes Glossy and Metallic and put them into `experiments/` (keeping the directory structure). Download the [trained weights](https://perso.liris.cnrs.fr/johanna.delanoy/data/2022_materials_generative_editing/models/normal_final.ckpt) for the normal prediction net and put them in `pix2normal/checkpoints/`.
+### Trained networks 
+Download the [trained weights](https://perso.liris.cnrs.fr/johanna.delanoy/data/2022_materials_generative_editing/models/checkpoints_generative_net.zip) for the attributes Glossy and Metallic and put them into `experiments/` (keeping the directory structure). 
 
+Download the [trained weights](https://perso.liris.cnrs.fr/johanna.delanoy/data/2022_materials_generative_editing/models/normal_final.ckpt) for the normal prediction net and put them in `pix2normal/checkpoints/`.
+
+### Test script
 `test_network.py` allows to launch the network on one image and a given attribute (it also does the normal prediction)
 
 Use:
+
 `test_network.py INPUT_IMAGE ATTR_VAL ATTRIBUTE OUTPUT_IMAGE` edit the image INPUT_IMAGE with ATTRIBUTE set to ATTR_VAL. The trained weights should be in `experiments/final_step1_ATTRIBUTE/checkpoints/G_final.pth.tar` and `experiments/final_step2_ATTRIBUTE/checkpoints/G_final.pth.tar`.
 
 Example use:
-`test_network.py test_images/....png 1.0 glossy test_glossy_1.png`
-`test_network.py test_images/....png 0.0 glossy test_glossy_0.png`
-`test_network.py test_images/....png 1.0 metallic test_metallic_1.png`
-`test_network.py test_images/....png 0.0 metallic test_metallic_0.png`
+* `test_network.py test_images/....png 1.0 glossy test_glossy_1.png`
+* `test_network.py test_images/....png 0.0 glossy test_glossy_0.png`
+* `test_network.py test_images/....png 1.0 metallic test_metallic_1.png`
+* `test_network.py test_images/....png 0.0 metallic test_metallic_0.png`
 
 Note: It creates a temporary image test_normals.png in the current folder.
 
