@@ -1,6 +1,6 @@
 # 
 TODO : paths dataset/weights, titre, lien papier, verif requirements, lines to test, checkpoints normals
-This repo contains the official code for the paper "" (CGF 2022). Project page:
+This repo contains the official code for the paper "A Generative Framework for Image-based Editing of Material Appearance using Perceptual Attributes" (CGF 2022). Project page: [https://perso.liris.cnrs.fr/johanna.delanoy/2022_materials_generative_editing/index.html](https://perso.liris.cnrs.fr/johanna.delanoy/2022_materials_generative_editing/index.html)
 
 ## Requirements
 - [Python 3.6+](https://www.python.org)
@@ -16,7 +16,7 @@ This repo contains the official code for the paper "" (CGF 2022). Project page:
 
 ## Testing
 
-Download the trained networks for the attributes Glossy and Metallic and put them into `experiments/` (keeping the directory structure):
+Download the [trained weights](https://perso.liris.cnrs.fr/johanna.delanoy/data/2022_materials_generative_editing/models/checkpoints_generative_net.zip) for the attributes Glossy and Metallic and put them into `experiments/` (keeping the directory structure). Download the [trained weights](https://perso.liris.cnrs.fr/johanna.delanoy/data/2022_materials_generative_editing/models/normal_final.ckpt) for the normal prediction net and put them in `pix2normal/checkpoints/`.
 
 `test_network.py` allows to launch the network on one image and a given attribute (it also does the normal prediction)
 
@@ -53,7 +53,7 @@ Normal prediction:
 
 ## Training
 
-Download the dataset:
+Download the dataset: [link](https://perso.liris.cnrs.fr/johanna.delanoy/data/2022_materials_generative_editing/network_dataset.zip).
 
 The folder `configs` contains the configuration files used to train the network as in the paper.
 
