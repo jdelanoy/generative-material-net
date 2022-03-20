@@ -1,5 +1,4 @@
 # 
-TODO : paths dataset/weights, titre, lien papier, verif requirements, lines to test, checkpoints normals
 This repo contains the official code for the paper "A Generative Framework for Image-based Editing of Material Appearance using Perceptual Attributes" (CGF 2022). Project page: [https://perso.liris.cnrs.fr/johanna.delanoy/2022_materials_generative_editing/index.html](https://perso.liris.cnrs.fr/johanna.delanoy/2022_materials_generative_editing/index.html)
 
 ## Requirements
