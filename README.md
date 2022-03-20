@@ -27,10 +27,10 @@ Use:
 `test_network.py INPUT_IMAGE ATTR_VAL ATTRIBUTE OUTPUT_IMAGE` edit the image INPUT_IMAGE with ATTRIBUTE set to ATTR_VAL. The trained weights should be in `experiments/final_step1_ATTRIBUTE/checkpoints/G_final.pth.tar` and `experiments/final_step2_ATTRIBUTE/checkpoints/G_final.pth.tar`.
 
 Example use:
-* `test_network.py test_images/....png 1.0 glossy test_glossy_1.png`
-* `test_network.py test_images/....png 0.0 glossy test_glossy_0.png`
-* `test_network.py test_images/....png 1.0 metallic test_metallic_1.png`
-* `test_network.py test_images/....png 0.0 metallic test_metallic_0.png`
+* `test_network.py test_images/XXX.png 1.0 glossy test_glossy_1.png`
+* `test_network.py test_images/XXX.png 0.0 glossy test_glossy_0.png`
+* `test_network.py test_images/XXX.png 1.0 metallic test_metallic_1.png`
+* `test_network.py test_images/XXX.png 0.0 metallic test_metallic_0.png`
 
 Note: It creates a temporary image test_normals.png in the current folder.
 
@@ -56,7 +56,7 @@ Normal prediction:
 
 ## Training
 
-Download the dataset: [link](https://perso.liris.cnrs.fr/johanna.delanoy/data/2022_materials_generative_editing/network_dataset.zip).
+Download the [training dataset](https://perso.liris.cnrs.fr/johanna.delanoy/data/2022_materials_generative_editing/network_dataset.zip).
 
 The folder `configs` contains the configuration files used to train the network as in the paper.
 
